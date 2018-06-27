@@ -13,8 +13,14 @@ class TestCHK(unittest.TestCase):
     def test_check_product_list(self):
         self.assertEquals(checkout_solution.checkout("HHHHHHHHHHHH"), 100)
 
-    def test_check_product_list(self):
-        self.assertEquals(checkout_solution.checkout("HHHHHHHHHHHH"), 100)
+    def test_check_product_list_freebies(self):
+        # 3 N's get you a free M
+        self.assertEquals(checkout_solution.checkout("NNNM"), 120)
+
+    def test_check_product_list_freebies_and_offers(self):
+        # 3 N's get you a free M
+        # P worth 50, and 5 for 200 (so 6 = 250)
+        self.assertEquals(checkout_solution.checkout("NNNMPPPPPP"), 370)
 
 if __name__ == '__main__':
     unittest.main()
