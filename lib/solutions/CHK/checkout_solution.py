@@ -72,7 +72,7 @@ def remove_freebies_test(skus, product, freebies):
 
             # count multiples of product, and remove free products from original string
             if p_count >= min: # then we have at least 1 freebie
-                num_this_freebie = (p_count/f[0]) # this many freebies
+                num_this_freebie = (p_count/min) # this many freebies
                 free_amount = num_this_freebie*f[2] # remove this many freebies from list
                 free_product = f[1]
                 for n in range(free_amount):
