@@ -92,5 +92,9 @@ class TestCHK(unittest.TestCase):
         free = [(2, 'F', 1)]
         self.assertEquals(checkout_solution.remove_freebies_test(skus, 'F', free), "FEEFFAFFF")
 
+    def test_check_mix_free_bogof(self):
+        skus = "AAAAAEEBAAABBFFF"
+        self.assertEquals(checkout_solution.checkout(skus), 475)
+
 if __name__ == '__main__':
     unittest.main()
