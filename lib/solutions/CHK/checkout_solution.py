@@ -30,7 +30,7 @@ def get_totals(skus, product, normal, specials, freebies):
                 free_product = f[1]
 
                 # search the string for free product, substitute with free product F
-                
+
 
 
     special_part = 0
