@@ -82,5 +82,15 @@ class TestCHK(unittest.TestCase):
         free = [(2, 'F', 1)]
         self.assertEquals(checkout_solution.remove_freebies_test(skus, 'F', free), "FF")
 
+    def test_remove_freebies_none(self):
+        skus = "EEFFA"
+        free = [(2, 'F', 1)]
+        self.assertEquals(checkout_solution.remove_freebies_test(skus, 'F', free), "EEFFA")
+
+    def test_remove_freebies_multiple(self):
+        skus = "FFFEEFFAFFF"
+        free = [(2, 'F', 1)]
+        self.assertEquals(checkout_solution.remove_freebies_test(skus, 'F', free), "FFEEFFAFF")
+
 if __name__ == '__main__':
     unittest.main()
