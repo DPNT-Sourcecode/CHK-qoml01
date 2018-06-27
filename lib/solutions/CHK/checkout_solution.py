@@ -55,12 +55,26 @@ def remove_freebies(skus, product, freebies):
 
 # skus = unicode string representing product list
 # product = the product to look for
-# bogof = a list of tuples
-#            (required_amount, free_amount) where:
-#            amount is multiple of cur product being checked,
+# freebies = a list of tuples (amount, free_product, free_amount) where amount is multiple of cur product being checked,
 #            free_product = product to get for free, free_amount how many you get
+# if free_product == product, then removal occurs only if amount+free_amount products are in skus
 # @return a new product string with the free items removed
-def parse_bogof_offer(skus, product, bogof):
+def remove_freebies_test(skus, product, freebies):
+    new_skus = skus
+    p_count = skus.count(product)
+    if freebies:
+        for f in freebies:
+            if(product == f[0])
+
+            # count multiples of product, and remove free products from original string
+            if p_count >= f[0]: # then we have at least 1 freebie
+                num_this_freebie = (p_count/f[0]) # this many freebies
+                free_amount = num_this_freebie*f[2] # remove this many freebies from list
+                free_product = f[1]
+                for n in range(free_amount):
+                    new_skus = remove_product_from_list(new_skus, free_product)
+    print('returning %s' % new_skus)
+    return new_skus
 
 
 # skus = unicode string
