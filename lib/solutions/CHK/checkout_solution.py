@@ -181,8 +181,20 @@ def checkout(skus):
 
     if(re.match('^[ABCDEFGHIKLMNOPQRSTUVWXYZ]*$', skus)):
 
-        # for each item
+        # first, remove the freebies
+        # for each item:
+        #    if it has a freebie list
+        #    remove them from the lst
+        #
+        # then, proess the totals, and offers
+        # for each item:
+        #    add the total via get_totals
+        newskus = skus
         for p in items:
+            if p[3]: # there is a freebies list
+
+
+
 
         free = [(2, 'B', 1)]
         newskus = remove_freebies_test(skus, 'E', free)
