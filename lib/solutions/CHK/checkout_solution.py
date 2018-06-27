@@ -64,7 +64,6 @@ def remove_freebies_test(skus, product, freebies):
     p_count = skus.count(product)
     if freebies:
         for f in freebies:
-            min = 0
             if product==f[1]: # if this is bogof, then check we have minimum
                min = f[0]+f[2]
             else:
