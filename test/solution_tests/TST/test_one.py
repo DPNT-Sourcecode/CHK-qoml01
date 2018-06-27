@@ -42,9 +42,6 @@ class TestCHK(unittest.TestCase):
     def test_chk_5As(self):
         self.assertEqual(checkout_solution.checkout("AAAAA"), 200)
 
-    def test_chk_e(self):
-        self.assertEqual(checkout_solution.checkout("EEE"), 0)
-
     def test_remove_p_from_list(self):
         self.assertEquals(checkout_solution.remove_product_from_list("ABCDEE", 'E'), "ABCDE")
 
@@ -52,7 +49,8 @@ class TestCHK(unittest.TestCase):
         self.assertEquals(checkout_solution.remove_product_from_list("EABCDE", 'E'), "ABCDE")
 
     def test_remove_freebies(self):
-        self.assertEquals(checkout_solution.remove_product_from_list("EABCDE", 'E'), "ABCDE")
+        free = [(2, 'B', 1)]
+        self.assertEquals(checkout_solution.remove_freebies("EABCBDBE", 'E', free), "EACBDBE")
 
 if __name__ == '__main__':
     unittest.main()
