@@ -112,10 +112,14 @@ def get_totals(skus, product, normal, specials):
 #            group = list of products
 #            multiple = how many of these products to get a special offer
 #            offer = how much it costs
-# @return a new product string with the free items removed
-def remove_special_group_test(skus, product, freebies):
+# @return a tuple of new product string with the special offer items removed, and a cost
+def remove_special_group_test(skus, product, special_group):
     new_skus = skus
-    p_count = skus.count(product)
+
+    p_count = 0
+    for p in special_group[0]: # for each char in the group, count occurences
+        p_count += skus.count(p)
+
     if freebies:
         for f in freebies:
             if product==f[1]: # if this is bogof, then check we have minimum
