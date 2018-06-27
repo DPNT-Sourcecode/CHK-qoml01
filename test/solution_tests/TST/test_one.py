@@ -90,7 +90,7 @@ class TestCHK(unittest.TestCase):
     def test_remove_freebies_multiple(self):
         skus = "FFFEEFFAFFF"
         free = [(2, 'F', 1)]
-        self.assertEquals(checkout_solution.remove_freebies_test(skus, 'F', free), "FFFEEFFAFFF")
+        self.assertEquals(checkout_solution.remove_freebies_test(skus, 'F', free), "FEEFFAFFF")
 
 if __name__ == '__main__':
     unittest.main()
