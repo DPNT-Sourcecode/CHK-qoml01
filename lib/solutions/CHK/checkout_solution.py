@@ -9,6 +9,7 @@ import re
 # | C    | 20    |                        |
 # | D    | 15    |                        |
 # | E    | 40    | 2E get one B free      |
+# | F    | 10    | 2F get one F free      |
 # +------+-------+------------------------+
 
 #ABBBAACCCEE
@@ -54,10 +55,12 @@ def remove_freebies(skus, product, freebies):
 
 # skus = unicode string representing product list
 # product = the product to look for
-# freebies = a list of tuples (amount, free_product, free_amount) where amount is multiple of cur product being checked,
+# bogof = a list of tuples
+#            (required_amount, free_amount) where:
+#            amount is multiple of cur product being checked,
 #            free_product = product to get for free, free_amount how many you get
 # @return a new product string with the free items removed
-def parse_bogof_offer(skus, product, freebies):
+def parse_bogof_offer(skus, product, bogof):
 
 
 # skus = unicode string
