@@ -6,9 +6,14 @@
 # @ return = the total price including any special offers
 def get_totals(skus, product, normal, special):
     p_count = skus.upper().count(product)
+    special_part = 0
+    normal_part = 0
     if special:
-        special_part = (p_count/special.first) * special.second
-    normal_part = (p_count % special.first) * normal
+        special_part = (p_count/special[0]) * special[1]
+        normal_part = (p_count % special[0]) * normal
+    else:
+        normal_part = p_count * normal
+
     total = special_part + normal_part
     return total
 
