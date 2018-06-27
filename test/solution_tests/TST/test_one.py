@@ -39,6 +39,12 @@ class TestCHK(unittest.TestCase):
     def test_chk_mixed_lower_special(self):
         self.assertEqual(checkout_solution.checkout("BacdDDaa%-~+"), -1)
 
+    def test_chk_5As(self):
+        self.assertEqual(checkout_solution.checkout("AAAAA"), 200)
+
+    def test_chk_e(self):
+        self.assertEqual(checkout_solution.checkout("EEE"), 0)
+
 
 
 if __name__ == '__main__':

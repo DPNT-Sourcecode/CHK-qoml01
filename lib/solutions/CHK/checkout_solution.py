@@ -36,6 +36,7 @@ def checkout(skus):
     total = 0
     #invalid input = anything not ABCD
     if(re.match('^[ABCD]*$', skus)):
+        total += get_totals(skus, 'A', 50, (5, 200))
         total += get_totals(skus, 'A', 50, (3, 130))
         total += get_totals(skus, 'B', 30, (2, 45))
         total += get_totals(skus, 'C', 20, None)
