@@ -52,5 +52,8 @@ class TestCHK(unittest.TestCase):
         free = [(2, 'B', 1)]
         self.assertEquals(checkout_solution.remove_freebies("EABCBDBE", 'E', free), "EACBDBE")
 
+    def test_chk_free(self):
+        self.assertEqual(checkout_solution.checkout("ABBBBAACCCEE"), 250)
+
 if __name__ == '__main__':
     unittest.main()

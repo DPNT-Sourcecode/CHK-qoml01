@@ -77,11 +77,13 @@ def checkout(skus):
     total = 0
 
     #invalid input = anything not ABCD
-    if(re.match('^[ABCD]*$', skus)):
-        total += get_totals(skus, 'A', 50, [(5, 200), (3,130)])
-        total += get_totals(skus, 'B', 30, [(2, 45)])
-        total += get_totals(skus, 'C', 20, [])
-        total += get_totals(skus, 'D', 15, [])
+    if(re.match('^[ABCDE]*$', skus)):
+        free = [(2, 'B', 1)]
+        newskus = remove_freebies(skus, 'E', free)
+        total += get_totals(newskus, 'A', 50, [(5, 200), (3,130)])
+        total += get_totals(newskus, 'B', 30, [(2, 45)])
+        total += get_totals(newskus, 'C', 20, [])
+        total += get_totals(newskus, 'D', 15, [])
     else:
         total = -1
 
