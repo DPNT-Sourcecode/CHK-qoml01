@@ -21,9 +21,7 @@ def get_totals(skus, product, normal, specials):
     special_part = 0
     normal_part = 0
     if specials:
-        print('specials %r' % specials)
         for s in specials:
-
             num_this_special = (p_count/s[0])
             special_part = num_this_special * s[1]
             p_count -= num_this_special
@@ -42,9 +40,9 @@ def checkout(skus):
     #invalid input = anything not ABCD
     if(re.match('^[ABCD]*$', skus)):
         total += get_totals(skus, 'A', 50, [(5, 200), (3,130)])
-        total += get_totals(skus, 'B', 30, (2, 45))
-        total += get_totals(skus, 'C', 20, None)
-        total += get_totals(skus, 'D', 15, None)
+        total += get_totals(skus, 'B', 30, [(2, 45)])
+        total += get_totals(skus, 'C', 20, [])
+        total += get_totals(skus, 'D', 15, [])
     else:
         total = -1
 
