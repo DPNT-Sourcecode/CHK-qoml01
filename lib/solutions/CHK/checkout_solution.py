@@ -14,12 +14,17 @@ import re
 # skus = unicode string
 # normal = regular unit price
 # product = character representing product
-# special = a list of pairs (amount, special_offer) where amount is multiple and special offer
+# specials = a list of pairs (amount, special_offer) where amount is multiple and special offer
+# freebies = a list of tuples (amount, product, amount, free) where amount is multiple, product is bought product
+#            and free is product for free
 # @ return = the total price including any special offers
 def get_totals(skus, product, normal, specials, freebies):
     p_count = skus.count(product)
     special_part = 0
     normal_part = 0
+    if freebies:
+        for f in freebies:
+            
     if specials:
         for s in specials:
             if p_count >= s[0]:
