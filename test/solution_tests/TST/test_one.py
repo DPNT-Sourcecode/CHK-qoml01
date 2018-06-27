@@ -65,5 +65,9 @@ class TestCHK(unittest.TestCase):
         newskus = "ABBBAACCCEE"
         self.assertEquals(checkout_solution.get_totals(newskus, 'B', 30, [(2, 45)]), 75)
 
+    def test_chk_8As(self):
+        newskus = "AAAAAAAA"
+        self.assertEquals(checkout_solution.get_totals(newskus, 'A', 50, [(5, 200), (3,130)]), 330)
+
 if __name__ == '__main__':
     unittest.main()
