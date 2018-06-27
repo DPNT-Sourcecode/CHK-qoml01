@@ -10,5 +10,7 @@ class TestCHK(unittest.TestCase):
     def test_check_mix_free(self):
         self.assertEquals(checkout_solution.checkout("AAAAAEEBAAABB"), 455)
 
+    def test.check_product_list(self):
+        self.assertEquals(checkout_solution.checkout("HHHHHHHHHHHH"), 90)
 if __name__ == '__main__':
     unittest.main()
