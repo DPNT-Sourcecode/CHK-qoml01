@@ -16,18 +16,17 @@ import re
 # prod = the product to remove
 # num = the number to remove
 # @return the new product string after removal
-def remove_products_from_list(skus, prod, num):
-    print ('%r, %r, %r' % (skus, prod, num))
+def remove_product_from_list(skus, prod):
+    print ('%r, %r' % (skus, prod))
     final = skus
-    for n in range(num):
-        p = final.find(prod)
-        if p != -1:
-            print ('at pos %d' % p)
-            new_skus_top = skus[:p]
-            new_skus_btm = skus[p+1:]
-            final = new_skus_top + new_skus_btm
-        else:
-            print ('at pos %d' % p)
+    p = final.find(prod)
+    if p != -1:
+        print ('at pos %d' % p)
+        new_skus_top = skus[:p]
+        new_skus_btm = skus[p+1:]
+        final = new_skus_top + new_skus_btm
+    else:
+        print ('at pos %d' % p)
     return final
 
 # skus = unicode string representing product list
@@ -45,7 +44,8 @@ def remove_freebies(skus, product, freebies):
                 num_this_freebie = (p_count/f[0]) # this many freebies
                 free_amount = num_this_freebie*f[2] # remove this many freebies from list
                 free_product = f[1]
-                new_skus = remove_products_from_list(new_skus, product, free_amount)
+                for n in range(free_amount):
+                    new_skus = remove_product_from_list(new_skus, free_product)
     return new_skus
 
 # skus = unicode string
