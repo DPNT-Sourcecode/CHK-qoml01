@@ -25,7 +25,7 @@ def remove_products_from_list(skus, prod, num):
             print ('at pos %d' % p)
             new_skus_top = skus[:p]
             new_skus_btm = skus[p+1:]
-            final = new_skus_btm + new_skus_top
+            final = new_skus_top + new_skus_btm
         else:
             print ('at pos %d' % p)
     return final
@@ -53,7 +53,7 @@ def remove_freebies(skus, product, freebies):
 # product = character representing product
 # specials = a list of pairs (amount, special_offer) where amount is multiple and special offer
 # @ return = the total price including any special offers
-def get_totals(skus, product, normal, specials, freebies):
+def get_totals(skus, product, normal, specials):
     p_count = skus.count(product)
     special_part = 0
     normal_part = 0

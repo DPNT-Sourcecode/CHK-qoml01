@@ -48,6 +48,9 @@ class TestCHK(unittest.TestCase):
     def test_remove_p_from_list(self):
         self.assertEquals(checkout_solution.remove_products_from_list("ABCDEE", 'E', 1), "ABCDE")
 
+    def test_remove_p_from_list(self):
+        self.assertEquals(checkout_solution.remove_products_from_list("ABECDE", 'E', 2), "ABCD")
+
 
 if __name__ == '__main__':
     unittest.main()
