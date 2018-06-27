@@ -73,6 +73,7 @@ def remove_freebies_test(skus, product, freebies):
             if p_count >= min: # then we have at least 1 freebie
                 num_this_freebie = (p_count/min) # this many freebies
                 free_amount = num_this_freebie*f[2] # remove this many freebies from list
+                print('remove this many %d' % free_amount)
                 free_product = f[1]
                 for n in range(free_amount):
                     new_skus = remove_product_from_list(new_skus, free_product)
