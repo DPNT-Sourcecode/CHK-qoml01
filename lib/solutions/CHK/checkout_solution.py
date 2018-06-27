@@ -19,14 +19,15 @@ import re
 def remove_products_from_list(skus, prod, num):
     new_skus_top = ""
     new_skus_btm = ""
-    final = ""
-    for n in num:
-        p = skus.find(prod)
+    final = skus
+    for n in range(num):
+        p = final.find(prod)
         if p != -1:
+            print ('at pos %d' % p)
             new_skus_top = skus[:p]
             new_skus_btm = skus[p+1:]
             final = new_skus_btm + new_skus_top
-    return skus
+    return final
 
 # skus = unicode string representing product list
 # product = the product to look for
