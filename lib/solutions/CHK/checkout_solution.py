@@ -46,6 +46,7 @@ def remove_freebies(skus, product, freebies):
                 free_product = f[1]
                 for n in range(free_amount):
                     new_skus = remove_product_from_list(new_skus, free_product)
+    print('returning %s' % new_skus)
     return new_skus
 
 # skus = unicode string
