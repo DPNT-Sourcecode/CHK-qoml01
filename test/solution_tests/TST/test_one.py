@@ -22,19 +22,22 @@ class TestCHK(unittest.TestCase):
         self.assertEqual(checkout_solution.checkout("ABBBBAACCC"), 280)
 
     def test_chk_multipleCD(self):
-        self.assertEqual(checkout_solution.checkout("CDDD"), 220)
-
-    def test_chk_empty_string(self):
-        self.assertEqual(checkout_solution.checkout(""), 220)
-
-    def test_chk_string_invalid_products(self):
-        self.assertEqual(checkout_solution.checkout("EFG"), 220)
+        self.assertEqual(checkout_solution.checkout("CDDD"), 65)
 
     def test_chk_lower(self):
-        self.assertEqual(checkout_solution.checkout("bithika"), 60)
+        self.assertEqual(checkout_solution.checkout("BacdDDaa"), 225)
+
+    def test_chk_empty_string(self):
+        self.assertEqual(checkout_solution.checkout(""), -1)
+
+    def test_chk_string_invalid_products(self):
+        self.assertEqual(checkout_solution.checkout("EFG"), -1)
+
+    def test_chk_lower(self):
+        self.assertEqual(checkout_solution.checkout("bithika"), -1)
 
     def test_chk_mixed_lower_special(self):
-        self.assertEqual(checkout_solution.checkout("BacdDDaa%-~+"), 60)
+        self.assertEqual(checkout_solution.checkout("BacdDDaa%-~+"), -1)
 
 
 
