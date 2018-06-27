@@ -17,8 +17,7 @@ import re
 # num = the number to remove
 # @return the new product string after removal
 def remove_products_from_list(skus, prod, num):
-    new_skus_top = ""
-    new_skus_btm = ""
+    print ('%r, %r, %r' % (skus, prod, num))
     final = skus
     for n in range(num):
         p = final.find(prod)
@@ -27,6 +26,8 @@ def remove_products_from_list(skus, prod, num):
             new_skus_top = skus[:p]
             new_skus_btm = skus[p+1:]
             final = new_skus_btm + new_skus_top
+        else:
+            print ('at pos %d' % p)
     return final
 
 # skus = unicode string representing product list
