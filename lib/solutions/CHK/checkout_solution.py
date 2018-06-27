@@ -1,4 +1,8 @@
 
+def total_a(skus):
+
+
+
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -9,5 +13,8 @@ def checkout(skus):
     special_a = (a_count/3) * 130
     normal_a = (a_count % 3) * 50
     total = special_a + normal_a
+
+
+
     return total
 
