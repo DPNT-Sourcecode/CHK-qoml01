@@ -73,6 +73,10 @@ class TestCHK(unittest.TestCase):
         newskus = "AAAAAAAAA"
         self.assertEquals(checkout_solution.get_totals(newskus, 'A', 50, [(5, 200), (3,130)]), 380)
 
+    def test_removal_of_freebie(self):
+        free = [(2, 'B', 1)]
+        self.assertEquals(checkout_solution.remove_freebies_test("AAAAAEEBAAABB", 'E', free), "AAAAAEEBAAAB")
+
     def test_check_mix_free(self):
         self.assertEquals(checkout_solution.checkout("AAAAAEEBAAABB"), 455)
 
