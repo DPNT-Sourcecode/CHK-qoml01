@@ -177,7 +177,7 @@ def checkout(skus):
     #invalid input = anything not in alphabet
     all_products = [x[0] for x in items]
 
-    if(re.match('^[ABCDEFGHIKLMNOPQRSTUVWXYZ]*$', skus)):
+    if(re.match('^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]*$', skus)):
 
         # first, remove the freebies
         # for each item:
