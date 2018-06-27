@@ -15,7 +15,6 @@ import re
 
 # 130 + 45 + 30 + 60 = 265
 
-
 # skus = unicode string representing product list
 # prod = the product to remove
 # num = the number to remove

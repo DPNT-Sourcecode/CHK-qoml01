@@ -73,5 +73,9 @@ class TestCHK(unittest.TestCase):
         newskus = "AAAAAAAAA"
         self.assertEquals(checkout_solution.get_totals(newskus, 'A', 50, [(5, 200), (3,130)]), 380)
 
+    def test_check_mix_free(self):
+        skus = "AAAAAEEBAAABB"
+        self.assertEquals(checkout_solution.checkout(skus), 455)
+
 if __name__ == '__main__':
     unittest.main()
