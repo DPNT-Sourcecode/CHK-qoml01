@@ -11,28 +11,21 @@ import re
 # | E    | 40    | 2E get one B free      |
 # +------+-------+------------------------+
 
+
+# skus = unicode string representing product list
+# freebies = a list of tuples (amount, free_product, free_amount) where amount is multiple of cur product being checked,
+#            free_product = product to get for free, free_amount how many you get
+# @return a new product string with the free items removed
+def remove_freebies(skus, freebies):
+    return  skus
+
 # skus = unicode string
 # normal = regular unit price
 # product = character representing product
 # specials = a list of pairs (amount, special_offer) where amount is multiple and special offer
-# freebies = a list of tuples (amount, free_product, free_amount) where amount is multiple of cur product being checked,
-#            free_product = product to get for free, free_amount how many you get
 # @ return = the total price including any special offers
 def get_totals(skus, product, normal, specials, freebies):
     p_count = skus.count(product)
-
-    if freebies:
-        for f in freebies:
-            # count multiples of product, and remove free products from original string
-            if p_count >= f[0]:
-                num_this_freebie = (p_count/f[0])
-                free_amount = num_this_freebie*f[2]
-                free_product = f[1]
-
-                # search the string for free product, substitute with free product F
-
-
-
     special_part = 0
     normal_part = 0
     if specials:
@@ -53,6 +46,7 @@ def get_totals(skus, product, normal, specials, freebies):
 # @return = an Integer representing the total checkout value of the items
 def checkout(skus):
     total = 0
+
     #invalid input = anything not ABCD
     if(re.match('^[ABCD]*$', skus)):
         total += get_totals(skus, 'A', 50, [(5, 200), (3,130)])
