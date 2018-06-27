@@ -16,17 +16,17 @@ import re
 # product = character representing product
 # special = a list of pairs (amount, special_offer) where amount is multiple and special offer
 # @ return = the total price including any special offers
-def get_totals(skus, product, normal, specials):
+def get_totals(skus, product, normal, specials, freebies):
     p_count = skus.count(product)
     special_part = 0
     normal_part = 0
     if specials:
         for s in specials:
-            if p_count > s[0]:
+            if p_count >= s[0]:
                 num_this_special = (p_count/s[0])
                 special_part = num_this_special * s[1]
                 p_count -= (num_this_special * s[0])
-            normal_part = (p_count % s[0]) * normal
+        normal_part = (p_count % s[0]) * normal
     else:
         normal_part = p_count * normal
 
