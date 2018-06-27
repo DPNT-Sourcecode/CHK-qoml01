@@ -64,7 +64,8 @@ def remove_freebies_test(skus, product, freebies):
     p_count = skus.count(product)
     if freebies:
         for f in freebies:
-            if(product == f[0])
+            if(product == f[1] and p_count :
+                # then verify that there are at least f[0] + f[2] products in basket
 
             # count multiples of product, and remove free products from original string
             if p_count >= f[0]: # then we have at least 1 freebie
