@@ -4,4 +4,7 @@
 # skus = unicode string
 # @return = an Integer representing the total checkout value of the items
 def checkout(skus):
-    return 25
+    total = 0
+    a_count = skus.toupper().count('A')
+    special_a = (a_count/3) * 130
+    
