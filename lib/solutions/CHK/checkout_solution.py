@@ -1,3 +1,4 @@
+import re
 
 # skus = unicode string
 # normal = regular unit price
@@ -5,7 +6,7 @@
 # special = pair (amount, special_offer) where amount is multiple and special offer
 # @ return = the total price including any special offers
 def get_totals(skus, product, normal, special):
-    p_count = skus.upper().count(product)
+    p_count = skus.count(product)
     special_part = 0
     normal_part = 0
     if special:
@@ -22,6 +23,9 @@ def get_totals(skus, product, normal, special):
 # @return = an Integer representing the total checkout value of the items
 def checkout(skus):
     total = 0
+    #invalid input = anything not ABCD
+    
+
     total += get_totals(skus, 'A', 50, (3, 130))
     total += get_totals(skus, 'B', 30, (2, 45))
     total += get_totals(skus, 'C', 20, None)
