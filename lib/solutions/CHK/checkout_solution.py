@@ -143,11 +143,11 @@ def get_totals(skus, product, normal, specials):
 # @return = an Integer representing the total checkout value of the items
 def checkout(skus):
 
-    # items will be a list of tuples: product name, regular price, offers
-    items = {
-
-
-    }
+    # items will be a list of tuples: product name, regular price, offers, freebies
+    items = [
+        ('A', 50, ([(5, 200), (3,130)]), []),
+        ('B', 30, ([(2, 45)])),
+    ]
 
     total = 0
 
