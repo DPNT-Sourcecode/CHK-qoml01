@@ -25,6 +25,7 @@ def remove_products_from_list(skus, prod, num):
 #            free_product = product to get for free, free_amount how many you get
 # @return a new product string with the free items removed
 def remove_freebies(skus, product, freebies):
+    new_skus = skus
     p_count = skus.count(product)
     if freebies:
         for f in freebies:
@@ -33,7 +34,8 @@ def remove_freebies(skus, product, freebies):
                 num_this_freebie = (p_count/f[0]) # this many freebies
                 free_amount = num_this_freebie*f[2] # remove this many freebies from list
                 free_product = f[1]
-    return  skus
+                new_skus = remove_products_from_list(new_skus, product, free_amount)
+    return new_skus
 
 # skus = unicode string
 # normal = regular unit price
