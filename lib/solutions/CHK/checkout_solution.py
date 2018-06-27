@@ -120,7 +120,13 @@ def remove_special_group_test(skus, product, special_group):
     for p in special_group[0]: # for each char in the group, count occurences
         p_count += skus.count(p)
 
-    if freebies:
+    # now work out how many offers are scored
+    # divide total count by special_group[1] (the multiple we're looking for)
+    total = 0
+    if p_count >= special_group[1]: # there's at least 1
+        score = p_count / special_group[1]
+        total = score * special_group[2] # num offers scored * price
+
         for f in freebies:
             if product==f[1]: # if this is bogof, then check we have minimum
                min = f[0]+f[2]
