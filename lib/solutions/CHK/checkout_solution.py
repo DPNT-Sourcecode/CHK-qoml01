@@ -26,10 +26,12 @@ def get_totals(skus, product, normal, specials, freebies):
             # count multiples of product, and remove free products from original string
             if p_count >= f[0]:
                 num_this_freebie = (p_count/f[0])
-                # remove num_this_freebie*free_amount free_products from the string
                 free_amount = num_this_freebie*f[2]
                 free_product = f[1]
+
+                # search the string for free product, substitute with free product F
                 
+
 
     special_part = 0
     normal_part = 0
