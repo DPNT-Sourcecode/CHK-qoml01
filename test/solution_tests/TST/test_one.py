@@ -45,6 +45,8 @@ class TestCHK(unittest.TestCase):
     def test_chk_e(self):
         self.assertEqual(checkout_solution.checkout("EEE"), 0)
 
+    def test_remove_p_from_list(self):
+        self.assertEquals(checkout_solution.remove_products_from_list("ABCDEE", 'E', 2), "ABCD")
 
 
 if __name__ == '__main__':
