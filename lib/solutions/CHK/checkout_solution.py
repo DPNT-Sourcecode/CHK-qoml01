@@ -21,7 +21,9 @@ def get_totals(skus, product, normal, specials):
     special_part = 0
     normal_part = 0
     if specials:
+        print('specials %r' % specials)
         for s in specials:
+
             num_this_special = (p_count/s[0])
             special_part = num_this_special * s[1]
             p_count -= num_this_special
