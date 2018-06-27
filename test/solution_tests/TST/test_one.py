@@ -52,16 +52,18 @@ class TestCHK(unittest.TestCase):
         free = [(2, 'B', 1)]
         self.assertEquals(checkout_solution.remove_freebies("EABCBDBE", 'E', free), "EACBDBE")
 
-    #def test_chk_free(self):
-    #    self.assertEqual(checkout_solution.checkout("ABBBBAACCCEE"), 250)
+    def test_chk_free(self):
+        self.assertEqual(checkout_solution.checkout("ABBBBAACCCEE"), 345)
 
     def test_chk_3A(self):
         newskus = "ABBBAACCCEE"
         self.assertEquals(checkout_solution.get_totals(newskus, 'A', 50, [(5, 200), (3,130)]), 130)
 
-    def test_chk_3A(self):
+    # # 130 + 45 + 30 + 60 = 265
+
+    def test_chk_3Bs(self):
         newskus = "ABBBAACCCEE"
-        self.assertEquals(checkout_solution.get_totals(newskus, 'A', 50, [(5, 200), (3,130)]), 130)
+        self.assertEquals(checkout_solution.get_totals(newskus, 'B', 30, [(2, 45)]), 75)
 
 if __name__ == '__main__':
     unittest.main()

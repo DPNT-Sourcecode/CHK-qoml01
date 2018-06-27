@@ -89,6 +89,7 @@ def checkout(skus):
         total += get_totals(newskus, 'B', 30, [(2, 45)])
         total += get_totals(newskus, 'C', 20, [])
         total += get_totals(newskus, 'D', 15, [])
+        total += get_totals(newskus, 'E', 40, [])
     else:
         total = -1
 
