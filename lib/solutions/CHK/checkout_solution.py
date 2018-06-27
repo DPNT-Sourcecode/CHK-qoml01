@@ -22,9 +22,10 @@ def get_totals(skus, product, normal, specials):
     normal_part = 0
     if specials:
         for s in specials:
-            num_this_special = (p_count/s[0])
-            special_part = num_this_special * s[1]
-            p_count -= num_this_special
+            if p_count > s[0]:
+                num_this_special = (p_count/s[0])
+                special_part = num_this_special * s[1]
+                p_count -= (num_this_special * s[0])
             normal_part = (p_count % s[0]) * normal
     else:
         normal_part = p_count * normal
