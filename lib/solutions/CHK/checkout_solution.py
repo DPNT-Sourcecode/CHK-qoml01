@@ -106,38 +106,35 @@ def get_totals(skus, product, normal, specials):
     return total
 
 
-# skus = unicode string
-# normal = regular unit price
-# product = character representing product
-# specials = a list of tuples (amount, group, special_offer) where:
-#           amount is multiple
-#           group is selection of products
-#           special offer is cost
-# @ return = the amount scored for this product including any special offers
-def get_totals_test(skus, product, normal, specials):
+# skus = unicode string representing product list
+# product = the product to look for
+# special_group = a list of tuples (group, multiple, offer) where:
+#            group = list of products
+#            multiple = how many of these products to get a special offer
+#            offer = how much it costs
+# @return a new product string with the free items removed
+def remove_special_group_test(skus, product, freebies):
+    new_skus = skus
     p_count = skus.count(product)
-    special_part = 0
-    normal_part = 0
-    if specials:
-        for s in specials:
-            if p_count >= s[0]:
-                num_this_special = (p_count/s[0])
-                special_part += num_this_special * s[1]
-                p_count -= (num_this_special * s[0])
-        if p_count:
-            normal_part = (p_count % s[0]) * normal
-    else:
-        normal_part = p_count * normal
+    if freebies:
+        for f in freebies:
+            if product==f[1]: # if this is bogof, then check we have minimum
+               min = f[0]+f[2]
+            else:
+               min = f[0]
 
-    total = special_part + normal_part
-    return total
+            # count multiples of product, and remove free products from original string
+            if p_count >= min: # then we have at least 1 freebie
+                num_this_freebie = (p_count/min) # this many freebies
+                free_amount = num_this_freebie*f[2] # remove this many freebies from list
+                print('remove this many %d' % free_amount)
+                free_product = f[1]
+                for n in range(free_amount):
+                    new_skus = remove_product_from_list(new_skus, free_product)
+    print('returning %s' % new_skus)
+    return new_skus
 
 
-# STXYZSTXYZSSSSTTT
-def get_selection_total(skus, product, )
-    # count occurences of S,T,X,Y,Z
-    # treat as the same character.
-    # divide by parameter passed in
 
 
 # +------+-------+------------------------+
