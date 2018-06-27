@@ -21,14 +21,11 @@ def get_totals(skus, product, normal, specials):
     special_part = 0
     normal_part = 0
     if specials:
-        # sort the special offers by amount
-        sorted_specials = specials.sort(key=lambda x: x[0])
-
-        for s in sorted_specials:
-            special_part = (p_count/s[0]) * s[1]
-
-        normal_part = (p_count % s[0]) * normal
-
+        for s in specials:
+            num_this_special = (p_count/s[0])
+            special_part = num_this_special * s[1]
+            p_count -= num_this_special
+            normal_part = (p_count % s[0]) * normal
     else:
         normal_part = p_count * normal
 
