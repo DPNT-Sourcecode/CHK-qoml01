@@ -111,7 +111,7 @@ def checkout(skus):
     total = 0
 
     #invalid input = anything not ABCD
-    if(re.match('^[ABCDE]*$', skus)):
+    if(re.match('^[ABCDEF]*$', skus)):
         free = [(2, 'B', 1)]
         newskus = remove_freebies_test(skus, 'E', free)
         free = [(2, 'F', 1)]

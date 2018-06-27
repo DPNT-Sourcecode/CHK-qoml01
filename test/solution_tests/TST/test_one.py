@@ -74,8 +74,7 @@ class TestCHK(unittest.TestCase):
         self.assertEquals(checkout_solution.get_totals(newskus, 'A', 50, [(5, 200), (3,130)]), 380)
 
     def test_check_mix_free(self):
-        skus = "AAAAAEEBAAABB"
-        self.assertEquals(checkout_solution.checkout(skus), 455)
+        self.assertEquals(checkout_solution.checkout("AAAAAEEBAAABB"), 455)
 
     def test_remove_freebies(self):
         skus = "FFF"
@@ -93,8 +92,7 @@ class TestCHK(unittest.TestCase):
         self.assertEquals(checkout_solution.remove_freebies_test(skus, 'F', free), "FEEFFAFFF")
 
     def test_check_mix_free_bogof(self):
-        skus = "AAAAAEEBAAABBFFF"
-        self.assertEquals(checkout_solution.checkout(skus), 475)
+        self.assertEquals(checkout_solution.checkout("AAAAAEEBAAABBFFF"), 475)
 
 if __name__ == '__main__':
     unittest.main()
