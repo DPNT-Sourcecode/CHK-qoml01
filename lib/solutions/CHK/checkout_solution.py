@@ -81,6 +81,7 @@ def remove_freebies_test(skus, product, freebies):
     return new_skus
 
 
+
 # skus = unicode string
 # normal = regular unit price
 # product = character representing product
@@ -104,10 +105,39 @@ def get_totals(skus, product, normal, specials):
     total = special_part + normal_part
     return total
 
+
+# skus = unicode string
+# normal = regular unit price
+# product = character representing product
+# specials = a list of tuples (amount, group, special_offer) where:
+#           amount is multiple
+#           group is selection of products
+#           special offer is cost
+# @ return = the amount scored for this product including any special offers
+def get_totals_test(skus, product, normal, specials):
+    p_count = skus.count(product)
+    special_part = 0
+    normal_part = 0
+    if specials:
+        for s in specials:
+            if p_count >= s[0]:
+                num_this_special = (p_count/s[0])
+                special_part += num_this_special * s[1]
+                p_count -= (num_this_special * s[0])
+        if p_count:
+            normal_part = (p_count % s[0]) * normal
+    else:
+        normal_part = p_count * normal
+
+    total = special_part + normal_part
+    return total
+
+
 # STXYZSTXYZSSSSTTT
-
-def ()
-
+def get_selection_total(skus, product, )
+    # count occurences of S,T,X,Y,Z
+    # treat as the same character.
+    # divide by parameter passed in
 
 
 # +------+-------+------------------------+
