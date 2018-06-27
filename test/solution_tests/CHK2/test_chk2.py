@@ -28,7 +28,7 @@ class TestCHK(unittest.TestCase):
 
     def test_check_special_group_offers(self):
         sgo = ("STXYZ", 3, 45)
-        self.assertEquals(checkout_solution.remove_special_group_test("STXYZSTXYZ", sgo))
+        self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
 
 if __name__ == '__main__':
     unittest.main()

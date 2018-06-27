@@ -127,23 +127,22 @@ def remove_special_group_test(skus, special_group):
         total = score * special_group[2] # num offers scored * price
 
     # now remove these items from the product list
+    for f in freebies:
+        if product==f[1]: # if this is bogof, then check we have minimum
+           min = f[0]+f[2]
+        else:
+           min = f[0]
 
-        for f in freebies:
-            if product==f[1]: # if this is bogof, then check we have minimum
-               min = f[0]+f[2]
-            else:
-               min = f[0]
-
-            # count multiples of product, and remove free products from original string
-            if p_count >= min: # then we have at least 1 freebie
-                num_this_freebie = (p_count/min) # this many freebies
-                free_amount = num_this_freebie*f[2] # remove this many freebies from list
-                print('remove this many %d' % free_amount)
-                free_product = f[1]
-                for n in range(free_amount):
-                    new_skus = remove_product_from_list(new_skus, free_product)
+        # count multiples of product, and remove free products from original string
+        if p_count >= min: # then we have at least 1 freebie
+            num_this_freebie = (p_count/min) # this many freebies
+            free_amount = num_this_freebie*f[2] # remove this many freebies from list
+            print('remove this many %d' % free_amount)
+            free_product = f[1]
+            for n in range(free_amount):
+                new_skus = remove_product_from_list(new_skus, free_product)
     print('returning %s' % new_skus)
-    return new_skus
+    return (total, new_skus)
 
 
 
