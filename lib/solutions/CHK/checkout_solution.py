@@ -13,10 +13,26 @@ import re
 
 
 # skus = unicode string representing product list
+# prod = the product to remove
+# num = the number to remove
+# @return the new product string after removal
+def remove_products_from_list(skus, prod, num):
+    return skus
+
+# skus = unicode string representing product list
+# product = the product to look for
 # freebies = a list of tuples (amount, free_product, free_amount) where amount is multiple of cur product being checked,
 #            free_product = product to get for free, free_amount how many you get
 # @return a new product string with the free items removed
-def remove_freebies(skus, freebies):
+def remove_freebies(skus, product, freebies):
+    p_count = skus.count(product)
+    if freebies:
+        for f in freebies:
+            # count multiples of product, and remove free products from original string
+            if p_count >= f[0]:
+                num_this_freebie = (p_count/f[0])
+                free_amount = num_this_freebie*f[2]
+                free_product = f[1]
     return  skus
 
 # skus = unicode string
