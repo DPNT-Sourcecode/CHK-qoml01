@@ -22,5 +22,9 @@ class TestCHK(unittest.TestCase):
         # P worth 50, and 5 for 200 (so 6 = 250)
         self.assertEquals(checkout_solution.checkout("NNNMPPPPPP"), 370)
 
+    def test_check_product_list_no_offers_no_freebies(self):
+        # a J is worth 60
+        self.assertEquals(checkout_solution.checkout("J"), 60)
+
 if __name__ == '__main__':
     unittest.main()
