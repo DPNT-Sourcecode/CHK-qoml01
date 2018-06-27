@@ -15,20 +15,24 @@ import re
 # normal = regular unit price
 # product = character representing product
 # specials = a list of pairs (amount, special_offer) where amount is multiple and special offer
-# freebies = a list of tuples (amount, free_amount, free) where amount is multiple, product is bought product
-#            and free is product for free
+# freebies = a list of tuples (amount, free_product, free_amount) where amount is multiple of cur product being checked,
+#            free_product = product to get for free, free_amount how many you get
 # @ return = the total price including any special offers
 def get_totals(skus, product, normal, specials, freebies):
     p_count = skus.count(product)
-    special_part = 0
-    normal_part = 0
+
     if freebies:
         for f in freebies:
             # count multiples of product, and remove free products from original string
             if p_count >= f[0]:
                 num_this_freebie = (p_count/f[0])
-                frees =
+                # remove num_this_freebie*free_amount free_products from the string
+                free_amount = num_this_freebie*f[2]
+                free_product = f[1]
+                
 
+    special_part = 0
+    normal_part = 0
     if specials:
         for s in specials:
             if p_count >= s[0]:
