@@ -174,9 +174,7 @@ def checkout(skus):
 
     ]
 
-    total = 0
-
-    #invalid input = anything not ABCD
+    #invalid input = anything not in alphabet
     all_products = [x[0] for x in items]
 
     if(re.match('^[ABCDEFGHIKLMNOPQRSTUVWXYZ]*$', skus)):
@@ -192,21 +190,22 @@ def checkout(skus):
         newskus = skus
         for p in items:
             if p[3]: # there is a freebies list
+                newskus = remove_freebies_test(newskus, p[0], p[3])
+        total = 0
+        for p in items:
+            total += get_totals(newskus, p[0], p[1], p[2])
 
-
-
-
-        free = [(2, 'B', 1)]
-        newskus = remove_freebies_test(skus, 'E', free)
-        free = [(2, 'F', 1)]
-        newskus = remove_freebies_test(newskus, 'F', free)
-        print('after removing freebies %s' % newskus)
-        total += get_totals(newskus, 'A', 50, [(5, 200), (3,130)])
-        total += get_totals(newskus, 'B', 30, [(2, 45)])
-        total += get_totals(newskus, 'C', 20, [])
-        total += get_totals(newskus, 'D', 15, [])
-        total += get_totals(newskus, 'E', 40, [])
-        total += get_totals(newskus, 'F', 10, [])
+        # free = [(2, 'B', 1)]
+        # newskus = remove_freebies_test(skus, 'E', free)
+        # free = [(2, 'F', 1)]
+        # newskus = remove_freebies_test(newskus, 'F', free)
+        # print('after removing freebies %s' % newskus)
+        # total += get_totals(newskus, 'A', 50, [(5, 200), (3,130)])
+        # total += get_totals(newskus, 'B', 30, [(2, 45)])
+        # total += get_totals(newskus, 'C', 20, [])
+        # total += get_totals(newskus, 'D', 15, [])
+        # total += get_totals(newskus, 'E', 40, [])
+        # total += get_totals(newskus, 'F', 10, [])
     else:
         total = -1
 

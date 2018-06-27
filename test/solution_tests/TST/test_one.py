@@ -98,5 +98,6 @@ class TestCHK(unittest.TestCase):
     def test_check_mix_free_bogof(self):
         self.assertEquals(checkout_solution.checkout("AAAAAEEBAAABBFFF"), 475)
 
+
 if __name__ == '__main__':
     unittest.main()
