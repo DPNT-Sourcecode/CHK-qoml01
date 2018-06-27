@@ -106,6 +106,9 @@ def get_totals(skus, product, normal, specials):
     return total
 
 
+def remove_products_with_priority(new_skus, group_discount_products):
+    
+
 # skus = unicode string representing product list
 # special_group = a list of tuples (group, multiple, offer) where:
 #            group = list of products
@@ -128,7 +131,7 @@ def remove_special_group_test(skus, special_group):
 
     # now remove these items from the product list
     for n in range(p_count):
-        new_skus = remove_products_from_list(new_skus, special_group[0])
+        new_skus = remove_products_with_priority(new_skus, special_group[0])
     print('returning %s' % new_skus)
     return (total, new_skus)
 
