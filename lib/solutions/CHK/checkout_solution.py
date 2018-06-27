@@ -11,6 +11,10 @@ import re
 # | E    | 40    | 2E get one B free      |
 # +------+-------+------------------------+
 
+#ABBBAACCCEE
+
+# 130 + 45 + 30 + 60 = 265
+
 
 # skus = unicode string representing product list
 # prod = the product to remove
