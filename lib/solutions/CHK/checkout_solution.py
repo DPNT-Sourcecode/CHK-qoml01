@@ -115,7 +115,8 @@ def checkout(skus):
         free = [(2, 'B', 1)]
         newskus = remove_freebies_test(skus, 'E', free)
         free = [(2, 'F', 1)]
-        newskus = remove_freebies_test(skus, 'F', free)
+        newskus = remove_freebies_test(newskus, 'F', free)
+        print('after removing freebies %s' % newskus)
         total += get_totals(newskus, 'A', 50, [(5, 200), (3,130)])
         total += get_totals(newskus, 'B', 30, [(2, 45)])
         total += get_totals(newskus, 'C', 20, [])
