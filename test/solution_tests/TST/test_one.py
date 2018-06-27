@@ -28,7 +28,7 @@ class TestCHK(unittest.TestCase):
         self.assertEqual(checkout_solution.checkout("BacdDDaa"), 225)
 
     def test_chk_empty_string(self):
-        self.assertEqual(checkout_solution.checkout(""), -1)
+        self.assertEqual(checkout_solution.checkout(""), 0)
 
     def test_chk_string_invalid_products(self):
         self.assertEqual(checkout_solution.checkout("EFG"), -1)
