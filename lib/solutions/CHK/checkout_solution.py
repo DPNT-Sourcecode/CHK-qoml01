@@ -105,9 +105,18 @@ def get_totals(skus, product, normal, specials):
     total = special_part + normal_part
     return total
 
+# skus - the product list
+# group_discount_products = the list of products belonging to this group discount, ordered by price high to low
+# num = the number of products to remove
+# @return the modified product list, with products removed according to cost
+def remove_products_with_priority(skus, group_discount_products, num):
+    c = 0
+    for p in group_discount_products:
+        if c < num:
+            remove_product_from_list(skus, p)
+            c += 1
+    return skus
 
-def remove_products_with_priority(new_skus, group_discount_products):
-    
 
 # skus = unicode string representing product list
 # special_group = a list of tuples (group, multiple, offer) where:
