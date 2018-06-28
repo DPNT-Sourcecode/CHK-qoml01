@@ -112,8 +112,19 @@ def get_totals(skus, product, normal, specials):
 def remove_products_with_priority(skus, group_discount_products, num):
     new_skus = skus
     c = 0
-    for p in group_discount_products:
-        if c < num:
+    pos = 0
+    while c < num:
+        for p in group_discount_products:
+            while(pos != -1):
+                new_skus.find(p) != -1):
+    if p != -1:
+        print ('at pos %d' % p)
+        new_skus_top = skus[:p]
+        new_skus_btm = skus[p+1:]
+        final = new_skus_top + new_skus_btm
+    else:
+        print ('at pos %d' % p)
+            if c < num:
             new_skus = remove_product_from_list(new_skus, p)
             c += 1
     return new_skus
