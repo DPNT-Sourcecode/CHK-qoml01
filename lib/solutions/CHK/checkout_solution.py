@@ -148,9 +148,8 @@ def remove_special_group(skus, special_group):
     if p_count >= special_group[1]: # there's at least 1
         score = p_count / special_group[1]
         total = score * special_group[2] # num offers scored * price
-
-    # now remove score*multiple items from the product list
-    new_skus = remove_products_with_priority(new_skus, special_group[0], score*special_group[1])
+        # now remove score*multiple items from the product list
+        new_skus = remove_products_with_priority(new_skus, special_group[0], score*special_group[1])
     print('returning %s' % new_skus)
     return (total, new_skus)
 

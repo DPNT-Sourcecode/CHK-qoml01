@@ -37,11 +37,14 @@ class TestCHK(unittest.TestCase):
 
     def test_check_special_group_offers(self):
         sgo = ("STXYZ", 3, 45)
-        self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
+        self.assertEquals(checkout_solution.remove_special_group("STXYZ", sgo), (45, "YZ"))
 
     def test_check_special_group_offers_mult(self):
         sgo = ("ZYTSX", 3, 45)
-        self.assertEquals(checkout_solution.remove_special_group_test("ZZAZYYBYTTCT", sgo), (135, "ABC"))
+        self.assertEquals(checkout_solution.remove_special_group("ZZAZYYBYTTCT", sgo), (135, "ABC"))
+
+    def test_checkout_with_group_discount(self):
+        self.assertEquals(checkout_solution.checkout("ZZAZYYBYTTCT"), 235)
 
 if __name__ == '__main__':
     unittest.main()
