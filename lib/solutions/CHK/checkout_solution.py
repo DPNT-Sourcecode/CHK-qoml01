@@ -123,9 +123,8 @@ def remove_products_with_priority(skus, group_discount_products, num):
                 c += 1
                 if c == num:
                     break
-            else:
-                pos = 0
-                continue
+        pos = 0
+        continue
 
     return new_skus
 
@@ -150,9 +149,8 @@ def remove_special_group_test(skus, special_group):
         score = p_count / special_group[1]
         total = score * special_group[2] # num offers scored * price
 
-    # now remove these items from the product list
-    for n in range(p_count):
-        new_skus = remove_products_with_priority(new_skus, special_group[0])
+    # now remove score*multiple items from the product list
+    new_skus = remove_products_with_priority(new_skus, special_group[0], score*special_group[1])
     print('returning %s' % new_skus)
     return (total, new_skus)
 

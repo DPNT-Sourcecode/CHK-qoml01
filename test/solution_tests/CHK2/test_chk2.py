@@ -35,9 +35,13 @@ class TestCHK(unittest.TestCase):
     def test_remove_group_discount_priority_limit(self):
         self.assertEquals(checkout_solution.remove_products_with_priority("ZSTXYZABC", "ZYTSX", 8), "ABC")
 
-    # def test_check_special_group_offers(self):
-    #     sgo = ("STXYZ", 3, 45)
-    #     self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
+    def test_check_special_group_offers(self):
+        sgo = ("STXYZ", 3, 45)
+        self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
+
+    def test_check_special_group_offers_mult(self):
+        sgo = ("STXYZZZZ", 3, 45)
+        self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
 
 if __name__ == '__main__':
     unittest.main()
