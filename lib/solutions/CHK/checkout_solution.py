@@ -212,8 +212,8 @@ def checkout(skus):
         ('P', 50, [(5,200)], [], None),
         ('Q', 30, [(3,80)], [], None),
         ('R', 50, [], [(3, 'Q', 1)], None),
-        ('S', 20, [], [], ('ZYWTSX', 3, 45), None),
-        ('T', 20, [], [], ('ZYWTSX', 3, 45), None),
+        ('S', 20, [], [], ('ZYTSX', 3, 45), None),
+        ('T', 20, [], [], ('ZYTSX', 3, 45), None),
         ('U', 40, [], [(3, 'U', 1)], None),
         ('V', 50, [(3, 130),(2, 90)], [], None),
         ('W', 20, [], [], None),
@@ -236,6 +236,7 @@ def checkout(skus):
             if p[4]: # there is group discount
                 (tot, newskus) = remove_special_group(newskus, p[4])
                 total += tot
+        print('total after group discount = %d' % total)
 
         # then, remove the freebies
         # for each item:
@@ -246,6 +247,7 @@ def checkout(skus):
         for p in items:
             if p[3]: # there is a freebies list
                 newskus = remove_freebies_test(newskus, p[0], p[3])
+        print('total after freebies = %d' % total)
         # then, proess the totals, and offers
         # for each item:
         #    add the total via get_totals
@@ -253,6 +255,7 @@ def checkout(skus):
 
         for p in items:
             total += get_totals(newskus, p[0], p[1], p[2])
+        print('total after normal + offers = %d' % total)
 
         # free = [(2, 'B', 1)]
         # newskus = remove_freebies_test(skus, 'E', free)
