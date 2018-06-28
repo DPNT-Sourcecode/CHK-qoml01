@@ -121,8 +121,12 @@ def remove_products_with_priority(skus, group_discount_products, num):
                 print('%r found at %d' % (p,pos))
                 new_skus = new_skus.replace(p, '', 1)
                 c += 1
-            if c == num:
-                break
+                if c == num:
+                    break
+            else:
+                pos = 0
+                continue
+
     return new_skus
 
 
