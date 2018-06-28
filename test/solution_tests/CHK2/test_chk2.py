@@ -40,8 +40,8 @@ class TestCHK(unittest.TestCase):
         self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
 
     def test_check_special_group_offers_mult(self):
-        sgo = ("STXYZZZZ", 3, 45)
-        self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
+        sgo = ("ZYTSX", 3, 45)
+        self.assertEquals(checkout_solution.remove_special_group_test("ZZAZYYBYTTCT", sgo), (135, "ABC"))
 
 if __name__ == '__main__':
     unittest.main()

@@ -135,7 +135,7 @@ def remove_products_with_priority(skus, group_discount_products, num):
 #            multiple = how many of these products to get a special offer
 #            offer = how much it costs
 # @return a tuple of new product string with the special offer items removed, and a cost
-def remove_special_group_test(skus, special_group):
+def remove_special_group(skus, special_group):
     new_skus = skus
 
     p_count = 0
