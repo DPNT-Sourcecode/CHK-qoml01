@@ -114,9 +114,11 @@ def remove_products_with_priority(skus, group_discount_products, num):
     c = 0
     pos = 0
     for p in group_discount_products:
+        print ('%r' % p )
         while(pos != -1 and c < num):
             pos = new_skus.find(p)
             if pos != -1:
+                print('%r found at %d' % (p,pos))
                 new_skus_first = new_skus[:pos]
                 new_skus_second = new_skus[pos+1:]
                 new_skus = new_skus_first + new_skus_second
