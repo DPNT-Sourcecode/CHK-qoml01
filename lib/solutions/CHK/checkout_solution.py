@@ -229,19 +229,28 @@ def checkout(skus):
 
     if(re.match('^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]*$', skus)):
 
-        # first, remove the freebies
+        # first, remove the group discount items
+        # and get the total so far
+        newskus = skus
+        total = 0
+        for p in items:
+            if p[4]: # there is group discount
+                remove_special_group
+
+        # then, remove the freebies
         # for each item:
         #    if it has a freebie list
         #    remove them from the lst
         #
-        # then, proess the totals, and offers
-        # for each item:
-        #    add the total via get_totals
-        newskus = skus
+
         for p in items:
             if p[3]: # there is a freebies list
                 newskus = remove_freebies_test(newskus, p[0], p[3])
-        total = 0
+        # then, proess the totals, and offers
+        # for each item:
+        #    add the total via get_totals
+
+
         for p in items:
             total += get_totals(newskus, p[0], p[1], p[2])
 
