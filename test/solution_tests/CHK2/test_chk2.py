@@ -46,5 +46,10 @@ class TestCHK(unittest.TestCase):
     def test_checkout_with_group_discount(self):
         self.assertEquals(checkout_solution.checkout("ZZAZYYBYTTCT"), 235)
 
+    def test_checkout_with_group_discount(self):
+        self.assertEquals(checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"), 795)
+
+
+
 if __name__ == '__main__':
     unittest.main()
