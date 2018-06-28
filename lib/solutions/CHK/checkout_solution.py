@@ -110,12 +110,13 @@ def get_totals(skus, product, normal, specials):
 # num = the number of products to remove
 # @return the modified product list, with products removed according to cost
 def remove_products_with_priority(skus, group_discount_products, num):
+    new_skus = skus
     c = 0
     for p in group_discount_products:
         if c < num:
-            remove_product_from_list(skus, p)
+            new_skus = remove_product_from_list(new_skus, p)
             c += 1
-    return skus
+    return new_skus
 
 
 # skus = unicode string representing product list
