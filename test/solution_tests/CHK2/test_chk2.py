@@ -46,8 +46,14 @@ class TestCHK(unittest.TestCase):
     def test_checkout_with_group_discount(self):
         self.assertEquals(checkout_solution.checkout("ZZAZYYBYTTCT"), 235)
 
-    def test_checkout_with_group_discount(self):
+    def test_checkout_with_group_discount_long(self):
         self.assertEquals(checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVW"), 795)
+
+    def test_checkout_with_group_discount_updates(self):
+        self.assertEquals(checkout_solution.checkout("KK"), 120)
+
+    def test_checkout_with_group_discount_updates(self):
+        self.assertEquals(checkout_solution.checkout("KKK"), 190)
 
 
 
