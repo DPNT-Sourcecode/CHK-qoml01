@@ -108,21 +108,21 @@ def get_totals(skus, product, normal, specials):
 # skus - the product list
 # group_discount_products = the list of products belonging to this group discount, ordered by price high to low
 # num = the number of products to remove
-# @return the modified product list, with products removed according to cost
+# @return the modified product list, with products removed according to the order given in the group
 def remove_products_with_priority(skus, group_discount_products, num):
     new_skus = skus
     c = 0
     pos = 0
     for p in group_discount_products:
         print ('%r' % p )
-        while(pos != -1 and c < num):
+        while(pos != -1 and c != num):
             pos = new_skus.find(p)
             if pos != -1:
                 print('%r found at %d' % (p,pos))
-                new_skus_first = new_skus[:pos]
-                new_skus_second = new_skus[pos+1:]
-                new_skus = new_skus_first + new_skus_second
+                new_skus = new_skus.replace(p, '', 1)
                 c += 1
+            if c == num:
+                break
     return new_skus
 
 
