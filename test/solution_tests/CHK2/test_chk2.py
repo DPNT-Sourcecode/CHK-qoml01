@@ -26,9 +26,12 @@ class TestCHK(unittest.TestCase):
         # a J is worth 60
         self.assertEquals(checkout_solution.checkout("J"), 60)
 
-    def test_check_special_group_offers(self):
-        sgo = ("STXYZ", 3, 45)
-        self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
+    def test_remove_group_discount_priority(self):
+        self.assertEquals(checkout_solution.remove_products_with_priority("STXYZ", "ZYTSX", 1), "STXY")
+
+    # def test_check_special_group_offers(self):
+    #     sgo = ("STXYZ", 3, 45)
+    #     self.assertEquals(checkout_solution.remove_special_group_test("STXYZ", sgo), (45, "YZ"))
 
 if __name__ == '__main__':
     unittest.main()
